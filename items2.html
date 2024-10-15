@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Items</title>
+<style>
+body{
+background-color: tan;
+}
+.item{
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 470px;
+/*border: 2px solid blue;*/
+}
+.item_image {
+border: 2px solid black;
+height: 150px;
+width: 150px;
+border-radius: 50%;
+justify-content: space-around;
+
+}
+.item_image img{
+height: 100%;
+width: 100%;
+border-radius: 50%;
+
+}
+.item_data{
+/*border: 2px solid black;*/
+width: 300px;
+color: black;
+}
+.off {
+color: red;
+}
+button:hover{
+color: white;
+background-color: orange;
+text-shadow: 2px 1px 2px black;
+}
+.items_container{
+display: flex;
+flex-wrap: wrap;
+}
+/*this is styling for order box*/
+.order_box{
+border: 2px solid black;
+height: 550px;
+width: 350px;
+border-radius: 20px;
+background-color: grey;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50% , -50%);
+display: none;
+}
+.order_image{
+border: 2px solid black;
+height: 150px;
+width: 150px;
+border-radius: 50%;
+}
+.order_image img{
+height: 100%;
+width: 100%;
+border-radius: 50%;
+}
+.name_design{
+/*border: 2px solid black;*/
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+.close_btn{`
+width: 40px;
+height: 40px;
+font-size: 26px;
+font-weight: bold;
+}
+#sweets_block{
+display: block;
+}
+#fastfood_block{
+display: none;
+}
+#normal_food_block{
+display: none;
+}
+#drinks_block{
+display: none;
+}
+
+.button_blocks{
+/*border: 2px solid red;*/
+position: fixed;
+top: 10px;
+width: 100%;
+height: 30px;
+background-color: grey;
+display: flex;
+justify-content: center;
+}
+.space{
+height: 40px;
+/*border: 2px solid green;*/
+}
+.button_blocks button{
+margin: 5px;
+}
+</style>
+<script >
+function closex() {
+document.getElementById('order_box_id').style.display='none';
+}
+function orderx(){
+document.getElementById('order_box_id').style.display='none';
+alert("Your Order Has placed...");
+}
+function order(n,p,d,i){
+document.getElementById('order_box_id').style.display='block';
+document.getElementById('name').innerHTML = n;
+document.getElementById('price').innerHTML = p;
+document.getElementById('discount').innerHTML = d;
+let dis = (p/100)*d;
+let sav = p-dis;
+document.getElementById('total').innerHTML = sav;
+document.getElementById('saved').innerHTML =dis;
+document.getElementById('order_image_id').src = i;
+}
+function drinks_category(){
+document.getElementById('sweets_block').style.display = "none";
+document.getElementById('fastfood_block').style.display = "none";
+document.getElementById('normal_food_block').style.display = "none";
+document.getElementById('drinks_block').style.display = "block";
+}
+function Sweets_category(){
+document.getElementById('sweets_block').style.display = "block";
+document.getElementById('fastfood_block').style.display = "none";
+document.getElementById('normal_food_block').style.display = "none";
+document.getElementById('drinks_block').style.display = "none";
+}
+function Fastfood_category(){
+document.getElementById('sweets_block').style.display = "none";
+document.getElementById('fastfood_block').style.display = "block";
+document.getElementById('normal_food_block').style.display = "none";
+document.getElementById('drinks_block').style.display = "none";
+}
+function Normal_food_Category(){
+document.getElementById('sweets_block').style.display = "none";
+document.getElementById('fastfood_block').style.display = "none";
+document.getElementById('normal_food_block').style.display = "block";
+document.getElementById('drinks_block').style.display = "none";
+}
+</script>
+</head>
+<body>
+<div class="space"></div>
+<div class="button_blocks">
+<button onclick="drinks_category();">Beverages</button>
+<button onclick="Sweets_category();">Desserts</button>
+<button onclick="Fastfood_category();">Fast Food</button>
+<button onclick="Normal_food_Category();">Normal food</button>
+</div>
+
+<div class="items_container">
+
+
+<!-- Normal food menu -->
+<div id="normal_food_block">
+
+<div class="item">
+<div class="item_image">
+<img src="butter.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Butter Paranthe</h2>
+<h2>Full Price : 99 <span class="off">10% OFF</span></h2>
+<h2>Half Price : 50 <span class="off">5% OFF</span></h2>
+<p>Special offer on our Butter Chapati stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button onclick="order('Butter',79,20,'butter.jpeg');">Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="chole.jpeg"></div>
+<div class="item_data">
+<h2>Name : Chole</h2>
+<h2>Full Price :60 <span class="off">50% OFF</span></h2>
+<h2>Half Price :80 <span class="off">20% OFF</span></h2>
+<p>Special offer on our Chole Chawal stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button onclick="order('Chole',79,20,'Chole.jpeg');">Order Now </button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="pakoda.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Pakora</h2>
+<h2>Full Price :120 <span class="off">50% OFF</span></h2>
+<h2>Half Price :80 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Pakora stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button onclick="order('Pakoda',120,50,'Pakoda.jpeg');">Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="khadi.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Khadi Chawal</h2>
+<h2>Full Price :110 <span class="off">30% OFF</span></h2>
+<h2>Half Price :60 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Khadi Chawal stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="rajma.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Rajma Chawal</h2>
+<h2>Full Price :100 <span class="off">20% OFF</span></h2>
+<h2>Half Price :50 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Rajma Chawal stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="daal.jpeg">
+</div>
+<div class="item_data">
+<h2>Name :Paneer Daal</h2>
+<h2>Full Price :150 <span class="off">30% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Paneer Daal stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+</div>
+<!--end of Normal food menus-->
+
+<!--Fast Food menu -->
+<div id="fastfood_block">
+
+<div class="item">
+<div class="item_image">
+<img src="chaap.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Chaap</h2>
+<h2>Full Price :180 <span class="off">50% OFF</span></h2>
+<h2>Half Price :120 <span class="off">30% OFF</span></h2>
+<p>Special offer on our Chaap stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button onclick="order('Chaap',180,50,'Chaap.jpeg');">Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="C:\html codes\images\paw.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Paw</h2>
+<h2>Full Price :170 <span class="off">10% OFF</span></h2>
+<h2>Half Price :130 <span class="off">20% OFF</span></h2>
+<p>Special offer on our Paw stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="C:\html codes\images\chowmein.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Chowmein</h2>
+<h2>Full Price :190 <span class="off">40% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Chowmein stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="roasted.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Roasted Toast</h2>
+<h2>Full Price :80 <span class="off">15% OFF</span></h2>
+<h2>Half Price :40 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Roasted Roast stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="role.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Rolls </h2>
+<h2>Full Price :110 <span class="off">20% OFF</span></h2>
+<h2>Half Price :60 <span class="off">20% OFF</span></h2>
+<p>Special offer on our Rolls Royce stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="Samosa.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Samosa Chaat</h2>
+<h2>Full Price :110 <span class="off">15% OFF</span></h2>
+<h2>Half Price :140 <span class="off">30% OFF</span></h2>
+<p>Special offer on our Samosa stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+</div>
+<!--end of Fast food menues-->
+
+<!--sweets menues-->
+<div id="sweets_block">
+
+<div class="item">
+<div class="item_image">
+<img src="C:\html codes\images\gulab.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Gulab Jamun</h2>
+<h2>Full Price :170 <span class="off">40% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Gulab Jamun stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="Burfi.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Burfee </h2>
+<h2>Full Price :100 <span class="off">20% OFF</span></h2>
+<h2>Half Price :80 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Burfee stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="rasgulla.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : White Rasgulla</h2>
+<h2>Full Price :120 <span class="off">20% OFF</span></h2>
+<h2>Half Price :80 <span class="off">10% OFF</span></h2>
+<p>Special offer on our White Rasgulla stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="Rabri.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Rabri </h2>
+<h2>Full Price :90 <span class="off">50% OFF</span></h2>
+<h2>Half Price :40 <span class="off">30% OFF</span></h2>
+<p>Special offer on our Rabri stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+
+<div class="item">
+<div class="item_image">
+<img src="milk.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Milk cake</h2>
+<h2>Full Price :600 <span class="off">50% OFF</span></h2>
+<h2>Half Price :200 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Milk Cake stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="Ghewar.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Ghewar</h2>
+<h2>Full Price :360 <span class="off">30% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Ghewar stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+</div>
+<!--end of sweets menues-->
+
+<!--drinks menues-->
+<div id="drinks_block">
+
+<div class="item">
+<div class="item_image">
+<img src="mojito.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : mojito</h2>
+<h2>Full Price :190 <span class="off">40% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Chowmein stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="coldshake.avif">
+</div>
+<div class="item_data">
+<h2>Name : Cold Shake</h2>
+<h2>Full Price :150 <span class="off">30% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Cold shake stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="mango.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Mango Shake</h2>
+<h2>Full Price :180 <span class="off">20% OFF</span></h2>
+<h2>Half Price :80 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Mango shake stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="masala.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : Masala Chai</h2>
+<h2>Full Price :160 <span class="off">10% OFF</span></h2>
+<h2>Half Price :100 <span class="off">50% OFF</span></h2>
+<p>Special offer on our Masala Chai stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="lemon.avif">
+</div>
+<div class="item_data">
+<h2>Name : Lemon Shake</h2>
+<h2>Full Price :110 <span class="off">20% OFF</span></h2>
+<h2>Half Price :90 <span class="off">10% OFF</span></h2>
+<p>Special offer on our Lemon shake stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+<div class="item">
+<div class="item_image">
+<img src="strawberry.jpeg">
+</div>
+<div class="item_data">
+<h2>Name : StrAwberry Shake</h2>
+<h2>Full Price :150 <span class="off">20% OFF</span></h2>
+<h2>Half Price :100 <span class="off">60% OFF</span></h2>
+<p>Special offer on our Strawberry stall,Order it via Zomato or Swiggy,We assure to Deliver your Delicious Dishes Within 30 min </p>
+<button>Order Now</button>
+</div>
+</div>
+
+</div>
+<!--end of drinks menues-->
+</div>
+
+<!-- this is for order box-->
+<div class="order_box" id="order_box_id">
+
+<div class="name_design">
+<h1>Coffee With Demon</h1>
+<button onclick="closex();" class="close_btn">&times;</button>
+</div>
+
+<center>
+<div class="order_image">
+<img src="burger.jpeg" id="order_image_id">
+</div>
+
+</center>
+<h2>Name : <span id="name"></span></h2>
+<h2>Price : <span id="price"></span></h2>
+<h2>Discount : <span id="discount"></span>%</h2>
+<h2>Total Price: <span id="total"></span></h2>
+<p>Your Savings <span id="saved"></span>rupees</p>
+<center>
+<button onclick="orderx();">Order complete</button>
+</center>
+</div>
+<div class="order_box" id="order_box_id">
+
+<div class="name_design">
+<h1>Coffee With Demon</h1>
+<button onclick="closex();" class="close_btn">&times;</button>
+</div>
+
+<center>
+<div class="order_image">
+<img src="burger.jpeg" id="order_image_id">
+</div>
+
+</center>
+<h2>Name : <span id="name"></span></h2>
+<h2>Price : <span id="price"></span></h2>
+<h2>Discount : <span id="discount"></span>%</h2>
+<h2>Total Price: <span id="total"></span></h2>
+<p>Your Savings <span id="saved"></span>rupees</p>
+<center>
+<button onclick="orderx();">Order complete</button>
+</center>
+</div>
+</body>
+</html>
